@@ -4,6 +4,7 @@ from django.views.generic import CreateView
 
 from boat.models import Boat
 from order.models import Order
+from order.services import send_order_email
 
 
 # Create your views here.
@@ -21,4 +22,6 @@ class OrderCreateView(CreateView):
         return context_data
 
     def form_valid(self, form):
+        obj = form.save()
+        send_order_email(obj)
         return super().form_valid(form)
