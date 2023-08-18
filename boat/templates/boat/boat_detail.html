@@ -1,0 +1,33 @@
+{% extends 'boat/base.html' %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">{{ object.name }}</div>
+                <div class="card-body">
+                    <table class="table table-striped">
+                        <tr>
+                            <th>Начало</th>
+                            <th>Окончание</th>
+                            <th>Владелец</th>
+
+                        </tr>
+
+                        {% for history_item in object.boathistory_set.all %}
+                            <tr>
+                                <td>{{ history_item.start_year }}</td>
+                                <td>{{ history_item.stop_year }}</td>
+                                <td>{{ history_item.owner }}</td>
+
+                            </tr>
+                        {% endfor %}
+                    </table>
+                </div>
+                <div class="card-footer">
+                    <a href="#" class="btn btn-outline-success">Оставить заявку</a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

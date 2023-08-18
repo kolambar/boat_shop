@@ -13,7 +13,7 @@ class OwnerAdmin(admin.ModelAdmin):
 
 @admin.register(Boat)
 class BoatAdmin(admin.ModelAdmin):
-    list_display = ('name', 'year', 'owner',)
+    list_display = ('name', 'year', 'owner', 'price', )
     list_filter = ('year', 'owner',)
 
 
@@ -21,4 +21,3 @@ class BoatAdmin(admin.ModelAdmin):
 class BoatHistoryAdmin(admin.ModelAdmin):
     list_display = ('boat', 'start_year', 'stop_year', 'owner',)
     list_filter = ('boat', 'owner',)
-

@@ -24,6 +24,7 @@ class Boat(models.Model):
     name = models.CharField(max_length=100, verbose_name='Название')
     year = models.PositiveIntegerField(**NULLABLE, verbose_name='Год выпуска')
     owner = models.ForeignKey(Owner, on_delete=models.CASCADE, verbose_name='Владелец')
+    price = models.IntegerField(**NULLABLE, verbose_name='Цена')
 
     def __str__(self):
         return f'{self.name}'
